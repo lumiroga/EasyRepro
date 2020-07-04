@@ -34,6 +34,27 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
         }
 
         /// <summary>
+        /// Clicks OK or Cancel on the Set State (Activate / Deactivate) dialog.  true = OK, false = Cancel
+        /// </summary>
+        /// <param name="clickOkButton"></param>
+        /// <returns></returns>
+        public bool SetStateDialog(bool clickOkButton)
+        {
+            return _client.SetStateDialog(clickOkButton);
+        }
+
+        /// <summary>
+        /// Clicks Confirm or Cancel on the Publish dialog.  true = Confirm, false = Cancel
+        /// </summary>
+        /// <param name="clickOkButton"></param>
+        /// <returns></returns>
+        public bool PublishDialog(bool clickConfirmButton)
+        {
+            return _client.PublishDialog(clickConfirmButton);
+        }
+
+
+        /// <summary>
         /// Clicks Close As Won or Close As Loss on Opportunity Close dialog
         /// </summary>
         /// <param name="closeAsWon"></param>
@@ -58,7 +79,7 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
         /// </summary>
         /// <param name="to">Enum used to assign record to user or team</param>
         /// <param name="userOrTeamName">Name of the user or team to assign to</param>
-        public void Assign(Dialogs.AssignTo to, string userOrTeamName = "")
+        public void Assign(AssignTo to, string userOrTeamName = null)
         {
             _client.AssignDialog(to, userOrTeamName);
         }

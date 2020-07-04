@@ -1,5 +1,6 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT license.
+using Microsoft.Dynamics365.UIAutomation.Api.UCI.DTO;
 using Microsoft.Dynamics365.UIAutomation.Browser;
 using System;
 
@@ -101,9 +102,9 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
         /// Sets the value of a LookupItem field
         /// </summary>
         /// <param name="field">LookupItem with the schema name of the field to retrieve</param>
-        public void SetValue(LookupItem control, int index = 0)
+        public void SetValue(LookupItem control)
         {
-            _client.SetValue(control, index);
+            _client.SetValue(control, FormContextType.BusinessProcessFlow);
         }
 
         /// <summary>
@@ -112,7 +113,7 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
         /// <param name="field">Schema name of the field to retrieve</param>
         public void SetValue(string field, DateTime date, string formatDate = null, string formatTime = null)
         {
-            _client.SetValue(field, date, formatDate, formatTime);
+            _client.SetValue(field, date, FormContextType.BusinessProcessFlow, formatDate, formatTime);
         }
 
         /// <summary>
@@ -121,7 +122,7 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
         /// <param name="field">MultiValueOptionSet with the schema name of the field to retrieve</param>
         public void SetValue(MultiValueOptionSet option, bool removeExistingValues = false)
         {
-            _client.SetValue(option, removeExistingValues);
+            _client.SetValue(option, FormContextType.BusinessProcessFlow, removeExistingValues);
         }
 
         /// <summary>
